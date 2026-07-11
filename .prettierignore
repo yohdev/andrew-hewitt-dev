@@ -1,2 +1,8 @@
 .next
-.vercel
+node_modules
+dist
+coverage
+playwright-report
+test-results
+public/assets
+package-lock.json
