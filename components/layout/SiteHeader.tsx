@@ -39,41 +39,46 @@ export function SiteHeader({ nav, headerCta }: { nav: NavItem[]; headerCta: CtaD
   const isActive = (href: string) => pathname === href;
 
   return (
-    <header className="sticky top-0 z-30 bg-[rgba(14,11,8,0.82)] backdrop-blur-[12px] border-b border-line">
-      <div className="container-site flex items-center gap-[22px] h-[74px]">
-        <Brand />
+    <>
+      <header className="sticky top-0 z-30 bg-[rgba(14,11,8,0.82)] backdrop-blur-[12px] border-b border-line">
+        <div className="container-site flex items-center gap-[22px] h-[74px]">
+          <Brand />
 
-        <nav className="ml-auto hidden min-[681px]:flex items-center gap-7" aria-label="Primary">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              aria-current={isActive(item.href) ? 'page' : undefined}
-              className={`font-body font-medium text-[15px] transition-colors hover:text-ink ${
-                isActive(item.href) ? 'text-amber' : 'text-muted'
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <Cta cta={headerCta}>
-            {headerCta.label} <span aria-hidden="true">→</span>
-          </Cta>
-        </nav>
+          <nav className="ml-auto hidden min-[681px]:flex items-center gap-7" aria-label="Primary">
+            {nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+                className={`font-body font-medium text-[15px] transition-colors hover:text-ink ${
+                  isActive(item.href) ? 'text-amber' : 'text-muted'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Cta cta={headerCta}>
+              {headerCta.label} <span aria-hidden="true">→</span>
+            </Cta>
+          </nav>
 
-        <button
-          type="button"
-          className="ml-auto hidden max-[680px]:inline-flex items-center justify-center w-11 h-11 rounded-sm border border-line-2 text-ink"
-          aria-label="Open menu"
-          aria-controls="nav-drawer"
-          aria-expanded={open}
-          onClick={() => setOpen(true)}
-        >
-          <IconMenu className="w-5 h-5" />
-        </button>
-      </div>
+          <button
+            type="button"
+            className="ml-auto hidden max-[680px]:inline-flex items-center justify-center w-11 h-11 rounded-sm border border-line-2 text-ink"
+            aria-label="Open menu"
+            aria-controls="nav-drawer"
+            aria-expanded={open}
+            onClick={() => setOpen(true)}
+          >
+            <IconMenu className="w-5 h-5" />
+          </button>
+        </div>
+      </header>
 
-      {/* Backdrop */}
+      {/* Backdrop + drawer live outside <header>: the header's `backdrop-filter`
+       * establishes a containing block for fixed descendants, which would anchor
+       * the drawer to the header's in-flow position (document top) instead of the
+       * viewport. As siblings they stay viewport-fixed at any scroll offset. */}
       <div
         className={`fixed inset-0 bg-[rgba(14,11,8,0.6)] backdrop-blur-[2px] z-40 transition-opacity duration-[250ms] ${
           open ? 'opacity-100 visible' : 'opacity-0 invisible'
@@ -82,7 +87,6 @@ export function SiteHeader({ nav, headerCta }: { nav: NavItem[]; headerCta: CtaD
         onClick={() => setOpen(false)}
       />
 
-      {/* Drawer */}
       <aside
         id="nav-drawer"
         aria-label="Menu"
@@ -118,6 +122,6 @@ export function SiteHeader({ nav, headerCta }: { nav: NavItem[]; headerCta: CtaD
           {headerCta.label} →
         </Cta>
       </aside>
-    </header>
+    </>
   );
 }
