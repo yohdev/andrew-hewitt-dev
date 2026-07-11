@@ -131,7 +131,7 @@ export const process: Page = {
           price: 'From $1,200',
           desc: 'We run the phases side by side — setup, MVP or full site, and launch strategy. Tiered to your budget.',
           feature: true,
-          cta: { label: 'See the tiers', href: '/work', variant: 'primary' },
+          cta: { label: 'See the tiers', href: '/work', variant: 'emphasis' },
         },
         {
           flag: 'Done for you',

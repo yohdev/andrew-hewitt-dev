@@ -17,7 +17,7 @@ import { z } from 'zod';
 export const ctaSchema = z.object({
   label: z.string(),
   href: z.string(),
-  variant: z.enum(['primary', 'secondary']).default('secondary'),
+  variant: z.enum(['primary', 'emphasis', 'secondary']).default('secondary'),
 });
 export type Cta = z.infer<typeof ctaSchema>;
 

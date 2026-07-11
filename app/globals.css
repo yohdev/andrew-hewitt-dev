@@ -39,6 +39,10 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* `clip` (not `hidden`) so no scroll container is created: keeps Next.js
+     * scroll-to-top-on-navigation working, and — applied at the root — clips
+     * the off-canvas fixed drawer so it can't be revealed by scrolling right. */
+    overflow-x: clip;
   }
   body {
     margin: 0;
@@ -49,7 +53,7 @@
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
   h1,
   h2,
@@ -119,9 +123,9 @@
     top: 12px;
   }
 
-  /* Emphasis inside display headings renders italic amber (the artifact's h_ em). */
+  /* Emphasis inside display headings renders in amber (italics dropped for now). */
   .heading-em em {
-    font-style: italic;
+    font-style: normal;
     color: var(--amber);
   }
 

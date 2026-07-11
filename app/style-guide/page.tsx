@@ -128,6 +128,7 @@ export default function StyleGuidePage() {
       <Block title="Buttons">
         <div className="flex flex-wrap gap-4 items-center">
           <Cta cta={{ label: 'Primary', href: '#', variant: 'primary' }} />
+          <Cta cta={{ label: 'Emphasis', href: '#', variant: 'emphasis' }} />
           <Cta cta={{ label: 'Secondary', href: '#', variant: 'secondary' }} />
         </div>
       </Block>
