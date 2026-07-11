@@ -1,0 +1,22 @@
+#!/bin/bash
+# Fast quality gate before every commit: format + types + lint on changed code.
+# The heavier accessibility gate (npm run test:a11y) runs in CI.
+# Install once: npm run a11y:install-hook   ·   bypass: SKIP_HOOK=1 git commit …
+set -euo pipefail
+
+[ "${SKIP_HOOK:-0}" = "1" ] && exit 0
+
+mapfile -t staged < <(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(ts|tsx|js|jsx|mjs|css)$' || true)
+[ "${#staged[@]}" -eq 0 ] && exit 0
+
+echo "▶ pre-commit: prettier · typecheck · lint"
+
+if ! npx prettier --check "${staged[@]}" >/dev/null 2>&1; then
+  echo "✗ formatting issues. Run: npm run format"
+  exit 1
+fi
+
+npm run typecheck
+npm run lint
+
+echo "✓ pre-commit passed"

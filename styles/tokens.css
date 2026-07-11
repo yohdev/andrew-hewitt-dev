@@ -1,0 +1,50 @@
+/*
+ * Design tokens — Andrew Hewitt (warm editorial)
+ * -----------------------------------------------------------------------------
+ * SINGLE SOURCE OF TRUTH for the brand's design system. Ported verbatim from the
+ * playbook artifact's :root block (demos/ayohdev/output/*.html) and its exported
+ * WordPress theme.json / 03-system-tokens.md.
+ *
+ * This file is intentionally framework-agnostic CSS custom properties. Tailwind
+ * utilities are mapped onto these vars in app/globals.css via `@theme inline`,
+ * so `bg-canvas`, `text-amber`, `rounded-pill`, `font-display` etc. and raw
+ * `var(--amber)` both resolve to the same value.
+ *
+ * To re-theme for another brand, the `extract-design-tokens` skill rewrites the
+ * values below from that brand's theme.json — nothing else needs to change.
+ */
+:root {
+  /* Neutrals (warm dark) */
+  --canvas: #0e0b08;
+  --surface: #181310;
+  --surface-2: #221a14;
+  --ink: #f8f3eb;
+  --ink-2: #e7ddce;
+  --muted: rgba(248, 243, 235, 0.74);
+  --muted-2: rgba(248, 243, 235, 0.56);
+  --faint: rgba(248, 243, 235, 0.42);
+  --line: rgba(248, 243, 235, 0.1);
+  --line-2: rgba(248, 243, 235, 0.16);
+
+  /* Accent — warm amber (signature) */
+  --amber: #f2a93b;
+  --amber-bright: #ffc873;
+  --amber-deep: #c67c18;
+  --amber-soft: rgba(242, 169, 59, 0.12);
+  --on-amber: #1a1206;
+
+  /* Type — Poppins (display) + Inter (body); next/font sets --font-poppins/--font-inter */
+  --display: var(--font-poppins), 'Poppins', system-ui, sans-serif;
+  --body: var(--font-inter), 'Inter', system-ui, sans-serif;
+
+  /* Radii (softened) */
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 26px;
+  --r-pill: 999px;
+
+  /* Layout */
+  --container: 1120px;
+  --measure: 660px;
+  --px: clamp(22px, 5vw, 44px);
+}
