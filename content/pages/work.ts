@@ -54,7 +54,7 @@ export const work: Page = {
             'Launch + lead-gen strategy',
             'Three tiers below to fit your budget',
           ],
-          cta: { label: 'See the tiers', href: '#tiers', variant: 'primary' },
+          cta: { label: 'See the tiers', href: '#tiers', variant: 'emphasis' },
         },
         {
           name: 'Done for you',

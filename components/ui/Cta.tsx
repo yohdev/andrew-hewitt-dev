@@ -7,8 +7,13 @@ const base =
   'inline-flex items-center gap-[9px] font-body font-semibold text-[15px] px-[26px] py-[14px] rounded-pill border border-transparent transition-all duration-200 whitespace-nowrap cursor-pointer';
 
 const variants = {
+  // Solid amber fill — reserved for the primary action (Book a call).
   primary:
     'bg-amber text-on-amber hover:bg-amber-bright hover:shadow-[0_10px_30px_rgba(242,169,59,0.22)]',
+  // Amber-tinted "soft" button — emphasized, but not the loud solid fill. For
+  // important supporting actions (e.g. "See how we work") that aren't the CTA.
+  emphasis:
+    'bg-amber-soft text-amber-bright border-[rgba(242,169,59,0.4)] hover:bg-[rgba(242,169,59,0.16)] hover:border-amber',
   secondary: 'bg-transparent text-ink border-line-2 hover:border-amber hover:text-amber-bright',
 } as const;
 

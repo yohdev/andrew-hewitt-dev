@@ -24,7 +24,7 @@ export function Hero(props: HeroData) {
           hasPhoto ? 'min-[901px]:grid-cols-[1.15fr_0.85fr]' : ''
         }`}
       >
-        <div className={hasPhoto ? '' : 'max-w-[720px]'}>
+        <div className={hasPhoto ? 'order-2 min-[901px]:order-1' : 'max-w-[720px]'}>
           {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
           <Html
             as="h1"
@@ -61,7 +61,7 @@ export function Hero(props: HeroData) {
         </div>
 
         {photo ? (
-          <div className="relative justify-self-center w-full max-w-[420px]">
+          <div className="relative justify-self-center w-full max-w-[420px] order-1 min-[901px]:order-2">
             <Image
               src={photo.src}
               alt={photo.alt}

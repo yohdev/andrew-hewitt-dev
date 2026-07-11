@@ -95,7 +95,7 @@ export const home: Page = {
           name: 'Done with you',
           desc: 'We build it together — setup, MVP or full website, and the launch strategy.',
           feature: true,
-          cta: { label: 'See how we work →', href: '/work', variant: 'primary' },
+          cta: { label: 'See how we work →', href: '/work', variant: 'emphasis' },
         },
         {
           name: 'Done for you',
