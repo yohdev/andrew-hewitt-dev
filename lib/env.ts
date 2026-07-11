@@ -5,7 +5,9 @@
  */
 export const env = {
   siteUrl: (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://andrewhewitt.dev').replace(/\/$/, ''),
-  bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? 'https://andrewhewitt.dev',
+  bookingUrl:
+    process.env.NEXT_PUBLIC_BOOKING_URL ??
+    'https://calendly.com/yohdev/meeting-with-andrew-hewitt',
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'hello@andrewhewitt.dev',
   analyticsId: process.env.NEXT_PUBLIC_ANALYTICS_ID ?? '',
 } as const;
